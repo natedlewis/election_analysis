@@ -64,10 +64,10 @@ with open(file_to_load) as election_data:
 
         # 4a: Write an if statement that checks that the
         # county does not match any existing county in the county list.
-        if county_name not in county_options:
+        if county_name not in counties:
 
             # 4b: Add the existing county to the list of counties.
-            county_options.append(county_name)
+            counties.append(county_name)
 
             # 4c: Begin tracking the county's vote count.
             county_votes[county_name] = 0
@@ -90,7 +90,7 @@ with open(file_to_save, "w") as txt_file:
     txt_file.write(election_results)
 
     # 6a: Write a for loop to get the county from the county dictionary.
-    for county_name in county_options:
+    for county_name in counties:
 
         # 6b: Retrieve the county vote count.
         votes = county_votes.get(county_name)
